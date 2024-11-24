@@ -1,5 +1,5 @@
 <template>
-  
+   <!-- 1 ##########################  -->
     <h1 class="text-green-800 text-2xl">HELLO WORLD {{ name.toUpperCase() }}</h1>
    
     
@@ -18,10 +18,18 @@
     <div v-show='count < 5' class="text-3xl ml-2 text-red-500 ">
     Vous avez cliquez moins de 5 fois
     </div>
-    
+   <!-- 2 ##########################  -->
     </div>
+ <p v-bind:id="count"> Vous avez cliquez {{ count }} fois</p>
+ <p v-bind:id="`p-${count}`"> Vous avez cliquez {{ count }} fois</p>
+ <p :id="`rosto-${count}`" :class="{actif : count >5} " class="text-green-500">  Vous avez cliquez {{ count }} fois</p>
  
+   <!-- 3 for ##########################  -->
+
+
+
 </template>
+
 
 <script setup>
 import { ref } from 'vue'
@@ -30,9 +38,7 @@ const count = ref(0)
 const name = ref("Rostand lele")
 
 
-const increment = (event) => {
-  console.log(event);
-  
+const increment = () => {
   count.value++
   
 }
@@ -46,7 +52,11 @@ setInterval(()=>{
 }, 1000)
 </script>
 
-
+<style>
+  .actif{
+    color: red;
+  }
+</style>
 
 
 
