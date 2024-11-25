@@ -1,7 +1,8 @@
 <template>
-  <ol class="list-disc">
-    <li v-for="color in colors">{{ color }}</li>
-  </ol>
+  <label for="tacks">
+  <input type="checkbox" name="tacks" id="tacks"> Voutre couleur
+  <input type="checkbox" name="tacks" id="tacks"> Voutre theme
+  </label>
 </template>
 
 <script setup>
