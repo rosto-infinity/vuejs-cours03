@@ -1,6 +1,6 @@
 <template>
  <h1>Hello rostand</h1>
-<Checkbox/>
+<Checkbox/> <br><br>
 <Liste/>
 </template>
 
