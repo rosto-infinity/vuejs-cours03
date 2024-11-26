@@ -21,7 +21,7 @@
 import { ref } from "vue";
 
 // État initial des couleurs
-const initialColors = ["Red", "Green", "Blue", "Gray"];
+const initialColors = ["Red", "Green", "Blue", "Gray", "white"];
 const colors = ref([...initialColors]); // Copie de l'état initial
 const isEditing = ref(false);
 const colorToEdit = ref("");
