@@ -64,8 +64,8 @@ const saveColor = () => {
 
 <style>
 .edit-dialog {
-  border: 1px solid #ccc;
-  padding: 10px;
+  border: 2px solid #ccc;
+  padding: 12px;
   margin-top: 10px;
 }
 </style>
