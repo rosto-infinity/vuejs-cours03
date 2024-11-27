@@ -15,7 +15,7 @@
     <div v-if="isEditing" class="mt-4">
       <h3 class="text-lg font-semibold">Modifier la couleur</h3>
       <input v-model="colorToEdit" class="border border-gray-300 rounded px-2 py-1" />
-      <button @click="saveColor" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Sauvegarder</button>
+      <button @click="saveColor" class="bg-green-500 text-white px-4 py-2 rounded ml-3 hover:bg-green-600">Sauvegarder</button>
       <button @click="closeEditDialog" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-2">Annuler</button>
     </div>
   </div>
