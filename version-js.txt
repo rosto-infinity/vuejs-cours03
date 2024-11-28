@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Couleurs</title>
+    <style>
+        .hidden { display: none; }
+        .button { padding: 0.5rem 1rem; border-radius: 0.25rem; cursor: pointer; }
+        .bg-green { background-color: #38a169; color: white; }
+        .bg-gray { background-color: #a0aec0; color: black; }
+        .text-red { color: #e53e3e; }
+        .text-blue { color: #3182ce; }
+    </style>
+</head>
+<body>
+    <div class="p-4">
+        <button id="sortBtn" class="button bg-green">Réorganiser</button>
+        <button id="resetBtn" class="button bg-gray">Réinitialiser</button>
+        <ul id="colorList" class="list-disc mt-4"></ul>
+
+        <div id="editSection" class="hidden mt-4">
+            <h3 class="text-lg font-semibold">Modifier la couleur</h3>
+            <input id="colorInput" class="border border-gray-300 rounded px-2 py-1" />
+            <button id="saveBtn" class="button bg-green">Sauvegarder</button>
+            <button id="cancelBtn" class="button bg-red">Annuler</button>
+        </div>
+    </div>
+
+    <script>
+        const initialColors = ["Red", "Green", "Blue", "Gray", "White"];
+        let colors = [...initialColors];
+        let isEditing = false;
+        let colorToEdit = "";
+        let colorIndex = -1;
+
+        const colorList = document.getElementById("colorList");
+        const editSection = document.getElementById("editSection");
+        const colorInput = document.getElementById("colorInput");
+        const saveBtn = document.getElementById("saveBtn");
+        const cancelBtn = document.getElementById("cancelBtn");
+
+        const renderColors = () => {
+            colorList.innerHTML = "";
+            colors.forEach((color, index) => {
+                const li = document.createElement("li");
+                li.className = "flex items-center";
+                li.innerHTML = `
+                    <span>${color}</span>
+                    <div>
+                        <button class="text-red" onclick="deleteColor('${color}')"> => Supprimer </button>
+                        <button class="text-blue" onclick="openEditDialog('${color}')"> => Éditer</button>
+                    </div>
+                `;
+                colorList.appendChild(li);
+            });
+        };
+
+        const deleteColor = (color) => {
+            colors = colors.filter(col => col !== color);
+            renderColors();
+        };
+
+        const sortColors = () => {
+            colors.sort((a, b) => (a > b ? 1 : -1));
+            renderColors();
+        };
+
+        const resetColors = () => {
+            colors = [...initialColors];
+            renderColors();
+        };
+
+        const openEditDialog = (color) => {
+            isEditing = true;
+            colorToEdit = color;
+            colorIndex = colors.indexOf(color);
+            colorInput.value = color;
+            editSection.classList.remove("hidden");
+        };
+
+        const closeEditDialog = () => {
+            isEditing = false;
+            colorInput.value = "";
+            editSection.classList.add("hidden");
+        };
+
+        const saveColor = () => {
+            if (colorIndex !== -1) {
+                colors[colorIndex] = colorInput.value;
+            }
+            closeEditDialog();
+            renderColors();
+        };
+
+        document.getElementById("sortBtn").onclick = sortColors;
+        document.getElementById("resetBtn").onclick = resetColors;
+        saveBtn.onclick = saveColor;
+        cancelBtn.onclick = closeEditDialog;
+
+        // Initial rendering
+        renderColors();
+    </script>
+</body>
+</html>
