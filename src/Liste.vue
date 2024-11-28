@@ -1,12 +1,12 @@
 <template>
   <div class="p-4">
-    <button @click="sortColors()" class="bg-green-500 text-white px-4 py-2 rounded mr-3 hover:bg-green-600">Réorganiser</button>
-    <button @click="resetColors()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Réinitialiser</button>
+    <button @click="sortColors()" class="bg-green-500 text-white px-4 py-2 rounded mr-5 hover:bg-green-600">Réorganiser</button>
+    <button @click="resetColors()" class="bg-gray-400 text-black px-4 py-2 rounded hover:bg-gray-400">Réinitialiser</button>
     <ul class="list-disc mt-4">
       <li v-for="color in colors" :key="color" class="flex items-center ">
         <span>{{ color }}</span>
         <div>
-          <button @click="deleteColor(color)" class="text-red-500 hover:text-red-700"> => Supprimer</button>
+          <button @click="deleteColor(color)" class="text-red-500 hover:text-red-700"> => Supprimer </button>
           <button @click="openEditDialog(color)" class="text-blue-500 hover:text-blue-700 ml-2"> => Éditer</button>
         </div>
       </li>
