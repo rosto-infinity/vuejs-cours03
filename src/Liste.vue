@@ -6,8 +6,8 @@
       <li v-for="color in colors" :key="color" class="flex items-center ">
         <span>{{ color }}</span>
         <div>
-          <button @click="deleteColor(color)" class="text-red-500 hover:text-red-700"> => Supprimer </button>
-          <button @click="openEditDialog(color)" class="text-blue-500 hover:text-blue-700 ml-2"> => Éditer</button>
+          <button @click="deleteColor(color)" class="text-red-500 hover:text-red-700"> ..... Supprimer </button>
+          <button @click="openEditDialog(color)" class="text-blue-500 hover:text-blue-700 ml-2"> | Éditer</button>
         </div>
       </li>
     </ul>
