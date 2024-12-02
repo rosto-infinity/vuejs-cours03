@@ -12,7 +12,7 @@
     Reinitialiser
   </button>
 
-  <form action="" class="mt-2">
+  <form action="" class="mt-2" @submit.prevent="addColor">
     <input
       type="text"
       placeholder="New color"
@@ -20,7 +20,7 @@
       v-model="colorName"
     />
 
-    {{ colorName}}
+ 
     <button
       @click="resetColors()"
       class="bg-slate-600 p-2 rounded-md mr-3 text-white"
@@ -112,5 +112,9 @@ const saveColor = () => {
 const closeEditDialog = () => {
   isEditing.value = false;
   colorToEdit.value = "";
+};
+const addColor = () => {
+ colors.value.push(colorName.value)
+ colorName.value=""
 };
 </script>
