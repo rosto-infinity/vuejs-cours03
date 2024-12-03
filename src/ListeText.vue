@@ -7,7 +7,7 @@
   </button>
   <button
     @click="resetColors()"
-    class="bg-slate-600 p-2 rounded-md mr-3 text-white"
+    class="bg-slate-600 p-2 rounded-md border-spacing-0 mr-3 text-white"
   >
     Reinitialiser
   </button>
