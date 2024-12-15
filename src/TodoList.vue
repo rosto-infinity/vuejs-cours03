@@ -11,7 +11,7 @@
       <button
         :disabled="newTodo.length === 0"
       
-       class="bg-green-500 text-white ml-1 px-4 py-2  mr-5 hover:bg-green-600"> Ajouter</button>
+       class="bg-green-500 text-white  px-4 py-2  mr-5 hover:bg-green-600 disabled:bg-green-300 border-2 border-green-500"> Ajouter</button>
     </fieldset>
   </form>
 
@@ -20,7 +20,14 @@
   </div>
   <div v-else>
       <ul>
-        <li v-for="todo in todos"></li>
+        <li class="list-disc ml-6 mt-2"
+         v-for="todo in todos"
+         :key="todo.date"
+         >
+         <label>
+           <input type="checkbox">{{ todo.title }}
+         </label>
+         </li>
       </ul>
   </div>
 
