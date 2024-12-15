@@ -1,12 +1,13 @@
 <template>
  <h1>Hello rostand</h1>
-<Checkbox/>
+<!-- <Checkbox/> -->
+<TodoList/>
 
  <br><br><hr>
-<ListeText/>
+<!-- <ListeText/> -->
 
  <br><br><hr>
-<Liste/>
+<!-- <Liste/> -->
 </template>
 
 
@@ -14,4 +15,5 @@
 import Checkbox from './Checkbox.vue';
 import Liste from './Liste.vue';
 import ListeText from './ListeText.vue';
+import TodoList from './TodoList.vue';
 </script>
