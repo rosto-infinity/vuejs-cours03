@@ -25,7 +25,7 @@
          :key="todo.date"
          >
          <label>
-           <input type="checkbox">{{ todo.title }}
+           <input type="checkbox">{{ todo.title }}; {{ todo.date }}
          </label>
          </li>
       </ul>
