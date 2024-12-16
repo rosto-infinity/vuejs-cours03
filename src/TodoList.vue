@@ -6,12 +6,12 @@
        v-model="newTodo"
 
        placeholder="Tâche a effectuer"
-       class=" p-2 border-2 border-green-500 bg-green-50">
+       class=" p-2 border-2 border-green-300 bg-green-50">
 
       <button
         :disabled="newTodo.length === 0"
       
-       class="bg-green-500 text-white  px-4 py-2  mr-5 hover:bg-green-600 disabled:bg-green-300 border-2 border-green-500"> Ajouter</button>
+       class="bg-green-500 text-white  px-4 py-2  mr-5 hover:bg-green-600 disabled:bg-green-300 border-2 border-green-300"> Ajouter</button>
     </fieldset>
   </form>
 
