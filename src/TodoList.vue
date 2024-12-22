@@ -1,19 +1,14 @@
 <template>
   <form action="" @submit.prevent="addTodo">
-   
-      <input
-        type="text"
-        v-model="newTodo"
-        placeholder="Tâche à effectuer"
-        class="p-2 bg-green-50 focus:border-2 focus:border-red-500 border-l-2 border-b-2 border-t-2"
-      />
-      <button
-        :disabled="newTodo.length === 0"
-        class="bg-green-500 text-white px-4 py-2 mr-5 border-green-500 border-r-2 border-b-2 border-t-2 rounded-r-md hover:bg-green-600 disabled:bg-green-300 disabled:border-green-300"
-      >
-        Ajouter une tâche
-      </button>
-    
+    <input type="text" v-model="newTodo" placeholder="Tâche à effectuer"
+      class="p-2 bg-green-50 focus:border-2 focus:border-red-500 border-l-2 border-b-2 border-t-2" />
+
+
+    <button :disabled="newTodo.length === 0"
+      class="bg-green-500 text-white px-4 py-2 mr-5 border-green-500 border-r-2 border-b-2 border-t-2 rounded-r-md hover:bg-green-600 disabled:bg-green-300 disabled:border-green-300">
+      Ajouter une tâche
+    </button>
+
   </form>
 
   <div v-if="todos.length === 0">
@@ -21,12 +16,8 @@
   </div>
   <div v-else>
     <ul>
-      <li
-        class="list-disc ml-6 mt-2"
-        v-for="todo in sortedTodos"
-        :key="todo.date"
-        :class="{ 'line-through': todo.completed, 'opacity-50': todo.completed }"
-      >
+      <li class="list-disc ml-6 mt-2" v-for="todo in sortedTodos" :key="todo.date"
+        :class="{ 'line-through': todo.completed, 'opacity-50': todo.completed }">
         <input type="checkbox" v-model="todo.completed" /> {{ todo.title }}
         <button v-if="todo.completed" @click="deleteTodo(todo)" class="text-red-500 ml-2">Supprimer</button>
       </li>
