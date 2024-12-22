@@ -39,6 +39,11 @@
     </label>
     <button @click="sortTodos" class="bg-green-500 text-white px-4 py-2 rounded mt-2 hover:bg-green-600">Trier</button>
   </div>
+<br> 
+  <div v-if="remainingTodos>0" 
+  class="text-3xl"> {{ remainingTodos }} tâche{{ remainingTodos>1 ? "s": "" }} à faire
+  
+  </div> 
 </template>
 
 <script setup>
@@ -115,6 +120,10 @@ const sortedTodos =computed(()=>{
   }
   return sortedTodos;
 });
+
+const remainingTodos = computed(()=>{
+  return todos.value.filter( t => t.completed ===false).length;
+})
 console.log(sortedTodos);
 console.log(sortedTodos);
 console.log(sortedTodos);
